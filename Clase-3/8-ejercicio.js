@@ -26,9 +26,6 @@ async function obtenerUsuario() {
 
 const usuarios = obtenerUsuariosAleatorios();
 
-//console.log(usuarios);
-
-
 obtenerUsuariosAleatorios().then(usuarios => {
     console.log(usuarios);
 });

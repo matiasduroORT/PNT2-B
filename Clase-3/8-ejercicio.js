@@ -1,10 +1,23 @@
-function obtenerUsuariosAleatorios(){
-    fetch('https://randomuser.me/api');
-    
+async function obtenerUsuariosAleatorios(){
+    const usuario1 = await obtenerUsuario()
+    const usuario2 = await obtenerUsuario()
+    const usuario3 = await obtenerUsuario()
 
-    return 0 
+    let usuarios = []
+
+    usuarios.push(usuario1);
+    usuarios.push(usuario2);
+    usuarios.push(usuario3);   
+    
+    return usuarios
 }
 
+async function obtenerUsuario() {
+    const api = await fetch('https://randomuser.me/api');
+    const data = await api.json();
+    const usuario = data.results[0];
+    return `${usuario.name.first} ${usuario.name.last}`;
+}
 
 // Consiga:
 // Obtener 3 usuarios Aleatorios
@@ -13,5 +26,6 @@ function obtenerUsuariosAleatorios(){
 
 const usuarios = obtenerUsuariosAleatorios();
 
-console.log(usuarios)
-
+obtenerUsuariosAleatorios().then(usuarios => {
+    console.log(usuarios);
+});

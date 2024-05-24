@@ -13,6 +13,7 @@ function App() {
   }
 
   const [tareas, setTareas] = useState([tareaModel])
+  
 
   const sinCompletar = tareas.filter( tarea => !tarea.completado).length
 
